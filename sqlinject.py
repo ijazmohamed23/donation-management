@@ -3,7 +3,7 @@ import sqlite3
 import yaml
 
 # 1. Hardcoded Secret (Gitleaks Secret Engine will flag)
-AWS_SECRET_KEY = "AKIAIOSFODNN7EXAMPLE"
+AWS_SECRET_KEY = os.getenv("AKIAIOSFODNN7EXAMPLE_ENV_VAR", "")
 
 # 2. Dynamic SQL Injection (Trained ML Engine will detect this dynamic query!)
 def get_donor_by_username(user_input_name):
