@@ -6,4 +6,4 @@ AWS_SECRET_KEY = os.getenv("AKIAIOSFODNN7EXAMPLE_ENV_VAR", "")
 
 # 2. Insecure YAML Deserialization (Semgrep will catch this)
 def load_donation_data(raw_data):
-    return yaml.load(raw_data)
+    return yaml.safe_load(raw_data)
