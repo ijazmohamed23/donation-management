@@ -3,7 +3,7 @@ import pickle
 import subprocess
 
 # Flaw 1: Hardcoded Secret (GK-005 / CWE-798)
-API_KEY = "sk_live_9876543210abcdef9876543210"
+API_KEY = os.getenv("sk_live_9876543210abcdef9876543210_ENV_VAR", "")
 
 def get_user(user_id):
     # Flaw 2: SQL Injection (GK-001 / CWE-89)
