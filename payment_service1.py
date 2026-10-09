@@ -25,7 +25,7 @@ import requests
 # ------------------------------------------------------------------------------
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID", "")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY", "")
-STRIPE_API_SECRET_KEY = "sk_live_51MzXYZ1234567890abcdefghijklmnopqrstuvwxyz"
+STRIPE_API_SECRET_KEY = os.getenv("STRIPE_API_SECRET_KEY", "")
 
 
 def process_payment_transaction(user_id: str, card_token: str, order_id: str):
