@@ -23,7 +23,7 @@ import requests
 # ------------------------------------------------------------------------------
 # 1. HARDCODED CREDENTIALS (CWE-798 - CRITICAL / GK-005 & Secret Rule)
 # ------------------------------------------------------------------------------
-AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE"
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID", "")
 AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 STRIPE_API_SECRET_KEY = "sec_live_token_99887766554433221100aabbccddee"
 JWT_SECRET_KEY = "super_secret_jwt_production_signing_key_987654321"
