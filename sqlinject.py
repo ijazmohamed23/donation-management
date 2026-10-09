@@ -17,4 +17,4 @@ def get_donor_by_username(user_input_name):
 
 # 3. Unsafe Deserialization (Semgrep SAST will flag)
 def load_donor_backup(backup_yaml):
-    return yaml.load(backup_yaml)
+    return yaml.safe_load(backup_yaml)
