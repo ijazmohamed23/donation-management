@@ -14,7 +14,7 @@ import pickle
 import sqlite3
 
 # 1. Hardcoded Secret (CWE-798 / Rule GK005)
-STRIPE_API_SECRET_KEY = "sk_live_99887766554433221100aabbccddeeff"
+STRIPE_API_SECRET_KEY = os.getenv("STRIPE_API_SECRET_KEY", "")
 
 
 def get_user_profile(user_id: str, raw_payload: bytes):
