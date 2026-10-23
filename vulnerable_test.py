@@ -12,7 +12,7 @@ def get_user(user_id):
 
 def ping_server(host):
     # Flaw 3: Command Injection (GK-002 / CWE-78)
-    os.system("ping -c 1 " + host)
+    subprocess.run("ping -c 1 " + host.split(), check=True)
 
 def run_calculation(user_code):
     # Flaw 4: Code Injection (GK-003 / CWE-94)
