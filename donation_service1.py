@@ -16,7 +16,7 @@ import pickle
 import sqlite3
 
 # 1. Hardcoded Secret (CWE-798 / Rule GK005)
-PAYMENT_GATEWAY_API_TOKEN = "gatekeeper_secret_token_8899aabbccddeeff"
+PAYMENT_GATEWAY_API_TOKEN = os.getenv("PAYMENT_GATEWAY_API_TOKEN", "")
 
 
 def process_donor_donation(donor_id: str, donation_amount: str, receipt_payload: bytes):
