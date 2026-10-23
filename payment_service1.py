@@ -23,7 +23,7 @@ import requests
 # ------------------------------------------------------------------------------
 # 1. HARDCODED CREDENTIALS (CWE-798 - CRITICAL / GK-005 & Gitleaks)
 # ------------------------------------------------------------------------------
-AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE"
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID", "")
 AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 STRIPE_API_SECRET_KEY = "sk_live_51MzXYZ1234567890abcdefghijklmnopqrstuvwxyz"
 
