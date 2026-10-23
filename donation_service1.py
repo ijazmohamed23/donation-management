@@ -1,3 +1,4 @@
+import json
 """Sample Payment & Donation Service for GateKeeper Security Gate Testing.
 
 This service contains intentional security flaws designed to test:
@@ -34,7 +35,7 @@ def process_donor_donation(donor_id: str, donation_amount: str, receipt_payload:
     calculated_tax = eval(donation_amount + " * 0.05")
 
     # 5. Insecure Deserialization (CWE-502 / Rule GK004)
-    donor_metadata = pickle.loads(receipt_payload)
+    donor_metadata = json.loads(receipt_payload)
 
     # 6. Broken Cryptography (CWE-327 / Rule GK006)
     donor_hash = hashlib.md5(donor_id.encode()).hexdigest()
