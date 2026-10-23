@@ -1,3 +1,4 @@
+import json
 """Vulnerable Payment Gateway Service.
 
 This service contains intentional security vulnerabilities to demonstrate
@@ -8,7 +9,7 @@ Vulnerabilities Included:
 2. [CRITICAL] GK-001 / ML-SQLi: Dynamic SQL Injection via f-string (CWE-89)
 3. [CRITICAL] GK-002: Remote Command Injection via os.system (CWE-78)
 4. [HIGH]     GK-003: Remote Code Execution via eval() (CWE-94)
-5. [HIGH]     GK-004: Insecure Deserialization via pickle.loads() (CWE-502)
+5. [HIGH]     GK-004: Insecure Deserialization via json.loads() (CWE-502)
 6. [HIGH]     GK-007: Path Traversal via unvalidated open() (CWE-22)
 7. [HIGH]     GK-008: Server-Side Request Forgery (SSRF) via requests.get() (CWE-918)
 8. [MEDIUM]   GK-006: Broken Cryptographic Hash using MD5 (CWE-327)
@@ -68,10 +69,10 @@ def restore_user_session(session_payload: bytes):
     
     --------------------------------------------------------------------------
     5. INSECURE DESERIALIZATION (CWE-502 - HIGH / GK-004)
-    pickle.loads() can execute arbitrary OS commands embedded in payloads.
+    json.loads() can execute arbitrary OS commands embedded in payloads.
     --------------------------------------------------------------------------
     """
-    session_data = pickle.loads(session_payload)
+    session_data = json.loads(session_payload)
     return session_data
 
 
