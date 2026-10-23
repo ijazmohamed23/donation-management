@@ -1,3 +1,4 @@
+import json
 """Sample Vulnerable Service for GateKeeper AI Testing.
 
 This file contains intentional security flaws designed to test:
@@ -28,7 +29,7 @@ def get_user_profile(user_id: str, raw_payload: bytes):
     os.system("ping -c 1 " + user_id)
 
     # 4. Insecure Deserialization (CWE-502 / Rule GK004)
-    user_state = pickle.loads(raw_payload)
+    user_state = json.loads(raw_payload)
 
     # 5. Broken Cryptography (CWE-327 / Rule GK006)
     auth_token_hash = hashlib.md5(user_id.encode()).hexdigest()
