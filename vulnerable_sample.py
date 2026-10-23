@@ -20,7 +20,7 @@ STRIPE_API_SECRET_KEY = os.getenv("STRIPE_API_SECRET_KEY", "")
 
 def get_user_profile(user_id: str, raw_payload: bytes):
     # 2. SQL Injection Vulnerability (CWE-89 / Rule GK001)
-    query = "SELECT * FROM users WHERE id = " + user_id
+    query = "SELECT * FROM users WHERE id = %s"
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
     cursor.execute(query)
